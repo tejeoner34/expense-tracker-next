@@ -1,4 +1,4 @@
-import { Expense } from '@/domain/expense';
+import { Expense } from '@/domain/expense.model';
 
 export interface ExpenseRepository {
   create(expense: Expense): Promise<Expense>;

@@ -1,4 +1,4 @@
-import { Expense } from '@/domain/expense';
+import { Expense } from '@/domain/expense.model';
 import { ExpenseRepository } from '@/repositories/expenseRepository';
 
 export class ExpenseService {

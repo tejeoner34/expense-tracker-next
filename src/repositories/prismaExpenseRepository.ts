@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { Expense } from '@/domain/expense';
+import { Expense } from '@/domain/expense.model';
 import { ExpenseRepository } from './expenseRepository';
 
 export class PrismaExpenseRepository implements ExpenseRepository {
