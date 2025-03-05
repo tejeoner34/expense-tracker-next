@@ -1,4 +1,3 @@
-import { signIn } from 'next-auth/react';
 import { AuthRepository } from './authRepository';
 import prisma from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
@@ -9,13 +8,14 @@ export class PrismaAuthRepository implements AuthRepository {
     password: string
   ): Promise<{ error: string; success?: undefined } | { success: boolean; error?: undefined }> {
     try {
-      const result = await signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-      });
+      const user = await prisma.user.findUnique({ where: { email } });
+      if (!user || !user.password) {
+        return { error: 'Invalid email or password' };
+      }
 
-      if (result?.error) {
+      // Compare password
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
         return { error: 'Invalid email or password' };
       }
 
