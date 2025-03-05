@@ -6,6 +6,7 @@ import prisma from '@/lib/prisma';
 import { compare } from 'bcryptjs';
 import { JWT } from 'next-auth/jwt';
 import { Session } from 'next-auth';
+import { routes } from '@/router/routes';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -55,7 +56,7 @@ export const authOptions: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: '/login', // Custom login page (optional)
+    signIn: routes.login,
   },
 };
 
