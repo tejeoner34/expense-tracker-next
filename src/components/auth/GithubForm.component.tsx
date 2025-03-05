@@ -1,15 +1,18 @@
+import CtaButton from '../ui/CtaButton';
+
 export default function GithubForm({
   buttonText,
+  isLoading,
   action,
 }: {
   buttonText: string;
+  isLoading: boolean;
   action: () => void;
 }) {
   return (
     <form action={action}>
-      <button type="submit" className="w-full bg-black text-white py-2 rounded-md mb-3">
-        {buttonText}
-      </button>
+      <span>Use Github</span>
+      <CtaButton buttonText={buttonText} isLoading={isLoading} />
     </form>
   );
 }
