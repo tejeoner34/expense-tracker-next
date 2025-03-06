@@ -24,7 +24,7 @@
   --muted-foreground: #b3b3b3;
   --accent: #434343;
   --accent-foreground: #fbfbfb;
-  --destructive: #97493e;
+  --destructive: #b04f42;
   --destructive-foreground: #a2b7d7;
   --border: #434343;
   --input: #434343;
@@ -92,6 +92,6 @@
     @apply bg-background text-foreground;
   }
   button {
-    @apply bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground/80;
+    @apply bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground/80 cursor-pointer;
   }
 }
